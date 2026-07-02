@@ -41,7 +41,7 @@ export default function Home() {
     <section>
       <div className={styles.intro}>
         <h1 className={styles.title}>ספר הפרומפטים</h1>
-        <p className={styles.subtitle}>ספר פרומפטים חכם לעסק שלך אחרי ההדרכה</p>
+        <p className={styles.subtitle}>ספר פרומפטים חכם לעסק שלך</p>
       </div>
 
       <ProfileStatusBanner status={profileStatus} />

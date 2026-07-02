@@ -20,7 +20,7 @@ export default function Layout() {
         <div className={styles.brand}>
           <div>
             <div className={styles.brandTitle}>ספר פרומפטים חכם</div>
-            <div className={styles.brandSubtitle}>ספר פרומפטים חכם לעסק שלך אחרי ההדרכה</div>
+            <div className={styles.brandSubtitle}>ספר פרומפטים חכם לעסק שלך</div>
           </div>
         </div>
         <nav className={styles.nav} aria-label="ניווט ראשי">
