@@ -1,0 +1,86 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid rgba(248, 250, 252, 0.08);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brandTitle {
+  font-size: var(--fs-h3);
+  font-weight: 800;
+}
+
+.brandSubtitle {
+  font-size: var(--fs-label);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(248, 250, 252, 0.08);
+}
+
+.navLink:active {
+  transform: scale(0.97);
+}
+
+.navLinkActive {
+  color: var(--color-on-action);
+  background-color: var(--color-action);
+}
+
+.navLinkActive:hover {
+  color: var(--color-on-action);
+  background-color: var(--color-action-hover);
+}
+
+.main {
+  flex: 1;
+  padding: var(--space-6);
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding: var(--space-3) var(--space-4);
+  }
+  .main {
+    padding: var(--space-4);
+  }
+}

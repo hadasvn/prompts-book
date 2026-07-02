@@ -1,0 +1,87 @@
+:root {
+  /* צבעים — לפי מסמך העיצוב */
+  --color-bg-primary: #0f172a;
+  --color-bg-primary-soft: #16213c;
+  --color-bg-secondary: #1e293b;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-action: #f97316;
+  --color-action-hover: #fb923c;
+  --color-action-active: #ea580c;
+  /* טקסט על גבי רקע כתום — לבן על כתום נכשל בניגודיות WCAG (2.8:1), כהה עובר (6.4:1) */
+  --color-on-action: #0f172a;
+  --color-success: #22c55e;
+  --color-success-bg: #dcfce7;
+  --color-info: #38bdf8;
+  --color-info-bg: #e0f2fe;
+  --color-predicted-bg: #ffedd5;
+  --color-predicted-text: #9a3412;
+  --color-empty-bg: #e2e8f0;
+  --color-empty-text: #475569;
+  --color-card-bg: #ffffff;
+  --color-card-border: rgba(15, 23, 42, 0.08);
+  --color-danger: #ef4444;
+
+  /* טיפוגרפיה */
+  --font-main: "Inter", "Segoe UI", system-ui, sans-serif;
+  --fs-h1: clamp(28px, 4vw, 44px);
+  --fs-h2: clamp(22px, 3vw, 28px);
+  --fs-h3: 20px;
+  --fs-body: 16px;
+  --fs-label: 14px;
+  --line-height-base: 1.5;
+
+  /* מרווחים ורדיוסים */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* צללים */
+  --shadow-card: 0 8px 24px rgba(2, 6, 23, 0.28);
+  --shadow-card-hover: 0 12px 32px rgba(2, 6, 23, 0.36);
+
+  /* אנימציה */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+}
+
+/* גודל טקסט נגיש — מוגדל דרך סרגל הנגישות */
+html[data-a11y-font="large"] {
+  font-size: 112.5%;
+}
+html[data-a11y-font="larger"] {
+  font-size: 125%;
+}
+
+html[data-a11y-contrast="high"] {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #f5f5f5;
+  --color-action: #ffb703;
+  --color-card-bg: #ffffff;
+  --color-card-border: #000000;
+}
+
+html[data-a11y-underline="on"] a {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

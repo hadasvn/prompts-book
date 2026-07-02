@@ -1,0 +1,145 @@
+.title {
+  font-size: var(--fs-h1);
+  margin-bottom: var(--space-2);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-5);
+}
+
+.card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid rgba(248, 250, 252, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.cardTitle {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-2);
+}
+
+.cardHelp {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-label);
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+}
+
+.fieldRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.fieldLabel {
+  font-weight: 700;
+  font-size: var(--fs-label);
+}
+
+.textInput {
+  width: 100%;
+  max-width: 360px;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(248, 250, 252, 0.16);
+  background-color: rgba(248, 250, 252, 0.04);
+  color: var(--color-text-primary);
+  font-size: var(--fs-body);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.textInput:focus {
+  border-color: var(--color-info);
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  background-color: var(--color-action);
+  color: var(--color-on-action);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-out), transform var(--duration-fast) var(--ease-out);
+}
+
+.primaryButton:hover {
+  background-color: var(--color-action-hover);
+}
+
+.primaryButton:active {
+  transform: scale(0.97);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.toggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toggleLabel {
+  font-weight: 700;
+  font-size: var(--fs-label);
+}
+
+.toggleHelp {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switchTrack {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(248, 250, 252, 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.switchTrack::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.switch input:checked + .switchTrack {
+  background-color: var(--color-action);
+}
+
+.switch input:checked + .switchTrack::before {
+  transform: translateX(22px);
+}
