@@ -1,18 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600;700;800&display=swap");
+
 :root {
-  /* צבעים — לפי מסמך העיצוב */
-  --color-bg-primary: #0f172a;
-  --color-bg-primary-soft: #16213c;
-  --color-bg-secondary: #1e293b;
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #cbd5e1;
+  /* צבעים — ערכת נושא בהירה, ניגודיות גבוהה לעבודה נוחה */
+  --color-bg-primary: #eef2f7;
+  --color-bg-primary-soft: #f8fafc;
+  --color-bg-secondary: #ffffff;
+  /* משטח "שקוע" לשדות קלט בתוך כרטיסים לבנים — נבדל בבירור מהכרטיס עצמו */
+  --color-surface-sunken: #f1f5f9;
+  --color-border: #cbd5e1;
+  --color-border-subtle: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
   --color-action: #f97316;
   --color-action-hover: #fb923c;
   --color-action-active: #ea580c;
   /* טקסט על גבי רקע כתום — לבן על כתום נכשל בניגודיות WCAG (2.8:1), כהה עובר (6.4:1) */
   --color-on-action: #0f172a;
-  --color-success: #22c55e;
+  --color-success: #16a34a;
   --color-success-bg: #dcfce7;
-  --color-info: #38bdf8;
+  --color-info: #0284c7;
   --color-info-bg: #e0f2fe;
   --color-predicted-bg: #ffedd5;
   --color-predicted-text: #9a3412;
@@ -20,10 +26,10 @@
   --color-empty-text: #475569;
   --color-card-bg: #ffffff;
   --color-card-border: rgba(15, 23, 42, 0.08);
-  --color-danger: #ef4444;
+  --color-danger: #dc2626;
 
   /* טיפוגרפיה */
-  --font-main: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-main: "Noto Sans Hebrew", "Segoe UI", system-ui, sans-serif;
   --fs-h1: clamp(28px, 4vw, 44px);
   --fs-h2: clamp(22px, 3vw, 28px);
   --fs-h3: 20px;
@@ -43,9 +49,9 @@
   --space-6: 32px;
   --space-7: 48px;
 
-  /* צללים */
-  --shadow-card: 0 8px 24px rgba(2, 6, 23, 0.28);
-  --shadow-card-hover: 0 12px 32px rgba(2, 6, 23, 0.36);
+  /* צללים — עדינים, מותאמים לרקע בהיר */
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.07);
+  --shadow-card-hover: 0 2px 6px rgba(15, 23, 42, 0.06), 0 10px 24px rgba(15, 23, 42, 0.12);
 
   /* אנימציה */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -62,13 +68,18 @@ html[data-a11y-font="larger"] {
 }
 
 html[data-a11y-contrast="high"] {
-  --color-bg-primary: #000000;
-  --color-bg-secondary: #0a0a0a;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #f5f5f5;
-  --color-action: #ffb703;
+  --color-bg-primary: #ffffff;
+  --color-bg-primary-soft: #ffffff;
+  --color-bg-secondary: #ffffff;
+  --color-surface-sunken: #ffffff;
+  --color-text-primary: #000000;
+  --color-text-secondary: #000000;
+  --color-action: #b45309;
+  --color-on-action: #ffffff;
   --color-card-bg: #ffffff;
   --color-card-border: #000000;
+  --color-border: #000000;
+  --color-border-subtle: #000000;
 }
 
 html[data-a11y-underline="on"] a {

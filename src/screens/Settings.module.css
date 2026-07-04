@@ -10,10 +10,11 @@
 
 .card {
   background-color: var(--color-bg-secondary);
-  border: 1px solid rgba(248, 250, 252, 0.08);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   margin-bottom: var(--space-5);
+  box-shadow: var(--shadow-card);
 }
 
 .cardTitle {
@@ -45,8 +46,8 @@
   max-width: 360px;
   padding: var(--space-3);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(248, 250, 252, 0.16);
-  background-color: rgba(248, 250, 252, 0.04);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
   color: var(--color-text-primary);
   font-size: var(--fs-body);
   transition: border-color var(--duration-base) var(--ease-out);
@@ -118,7 +119,7 @@
 .switchTrack {
   position: absolute;
   inset: 0;
-  background-color: rgba(248, 250, 252, 0.2);
+  background-color: var(--color-border);
   border-radius: 999px;
   cursor: pointer;
   transition: background-color var(--duration-base) var(--ease-out);

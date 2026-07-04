@@ -93,7 +93,7 @@
   padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
   background-color: transparent;
-  border: 1px solid rgba(248, 250, 252, 0.24);
+  border: 1px solid var(--color-border);
   color: var(--color-text-primary);
   font-weight: 700;
   cursor: pointer;
@@ -101,7 +101,7 @@
 }
 
 .secondaryButton:hover {
-  background-color: rgba(248, 250, 252, 0.08);
+  background-color: var(--color-surface-sunken);
 }
 
 .secondaryButton:active {
@@ -214,7 +214,7 @@
 
 .rubricRow {
   background-color: var(--color-bg-secondary);
-  border: 1px solid rgba(248, 250, 252, 0.08);
+  border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-4);
 }
@@ -238,8 +238,8 @@
   min-height: 40px;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(248, 250, 252, 0.16);
-  background-color: rgba(248, 250, 252, 0.04);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
   color: var(--color-text-primary);
   font-family: inherit;
   font-size: var(--fs-label);
