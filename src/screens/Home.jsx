@@ -7,6 +7,7 @@ import ProfileStatusBanner from "../components/ProfileStatusBanner.jsx";
 import { storage } from "../lib/storage.js";
 import { getProfileStatus } from "../lib/profileStatus.js";
 import { trackEvent } from "../lib/analytics.js";
+import { SearchIcon } from "../components/icons.jsx";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState(CATEGORIES[0].key);
@@ -48,28 +49,35 @@ export default function Home() {
 
       <div className={styles.controls}>
         <div className={styles.tabs} role="tablist" aria-label="קטגוריות פרומפטים">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              type="button"
-              role="tab"
-              aria-selected={activeTab === cat.key && !trimmedQuery}
-              className={activeTab === cat.key && !trimmedQuery ? `${styles.tab} ${styles.tabActive}` : styles.tab}
-              onClick={() => {
-                setActiveTab(cat.key);
-                setQuery("");
-                trackEvent("tab_view", { tab: cat.key });
-              }}
-            >
-              <span aria-hidden="true">{cat.icon}</span> {cat.label}
-            </button>
-          ))}
+          {CATEGORIES.map((cat) => {
+            const isActive = activeTab === cat.key && !trimmedQuery;
+            const count = allPrompts.filter((p) => p.category === cat.key).length;
+            return (
+              <button
+                key={cat.key}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                className={isActive ? `${styles.tab} ${styles.tabActive}` : styles.tab}
+                onClick={() => {
+                  setActiveTab(cat.key);
+                  setQuery("");
+                  trackEvent("tab_view", { tab: cat.key });
+                }}
+              >
+                <span className={styles.tabDot} style={{ background: cat.color }} aria-hidden="true" />
+                {cat.label}
+                <span className={styles.tabCount}>{count}</span>
+              </button>
+            );
+          })}
         </div>
 
         <div className={styles.searchWrap}>
           <label htmlFor="prompt-search" className="visually-hidden">
             חיפוש פרומפטים
           </label>
+          <SearchIcon size={17} className={styles.searchIcon} />
           <input
             id="prompt-search"
             type="search"
@@ -86,7 +94,10 @@ export default function Home() {
       {groupedResults
         ? Array.from(groupedResults.entries()).map(([category, prompts]) => (
             <div key={category}>
-              <h2 className={styles.sectionHeading}>{categoryLabel(category)}</h2>
+              <div className={styles.sectionHeading}>
+                <h2>{categoryLabel(category)}</h2>
+                <span>{prompts.length} פרומפטים</span>
+              </div>
               <div className={styles.grid}>
                 {prompts.map((prompt) => (
                   <PromptCard key={prompt.id} prompt={prompt} />
@@ -95,11 +106,19 @@ export default function Home() {
             </div>
           ))
         : (
-            <div className={styles.grid}>
-              {results.map((prompt) => (
-                <PromptCard key={prompt.id} prompt={prompt} />
-              ))}
-            </div>
+            <>
+              {results.length > 0 && (
+                <div className={styles.sectionHeading}>
+                  <h2>{categoryLabel(activeTab)}</h2>
+                  <span>{results.length} פרומפטים</span>
+                </div>
+              )}
+              <div className={styles.grid}>
+                {results.map((prompt) => (
+                  <PromptCard key={prompt.id} prompt={prompt} />
+                ))}
+              </div>
+            </>
           )}
     </section>
   );

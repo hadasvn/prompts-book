@@ -145,7 +145,7 @@
   padding: 2px 10px;
   border-radius: 999px;
   background-color: var(--color-info-bg);
-  color: #075985;
+  color: var(--color-info-text);
   font-weight: 700;
   font-size: 12px;
 }

@@ -40,7 +40,7 @@
 
 .badgeFull {
   background-color: var(--color-success-bg);
-  color: #14532d;
+  color: var(--color-success-text);
 }
 
 .message {

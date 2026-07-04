@@ -1,46 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Assistant:wght@400;500;600;700;800&display=swap");
 
 :root {
-  /* צבעים — ערכת נושא בהירה, ניגודיות גבוהה לעבודה נוחה */
-  --color-bg-primary: #eef2f7;
-  --color-bg-primary-soft: #f8fafc;
+  /* צבעים — עיצוב SaaS מודרני: סרגל צד נייבי, כרטיסים לבנים, מבטא כתום */
+  --color-bg-primary: #eef1f6;
+  --color-bg-primary-soft: #eef1f6;
   --color-bg-secondary: #ffffff;
   /* משטח "שקוע" לשדות קלט בתוך כרטיסים לבנים — נבדל בבירור מהכרטיס עצמו */
-  --color-surface-sunken: #f1f5f9;
-  --color-border: #cbd5e1;
-  --color-border-subtle: #e2e8f0;
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
+  --color-surface-sunken: #f8fafc;
+  --color-border: #d8dfea;
+  --color-border-subtle: #e4e9f1;
+  --color-divider: #f1f5f9;
+  --color-text-primary: #1b2a4a;
+  --color-text-secondary: #64748b;
+  --color-text-faint: #94a3b8;
   --color-action: #f97316;
-  --color-action-hover: #fb923c;
+  --color-action-hover: #fb8c3c;
   --color-action-active: #ea580c;
-  /* טקסט על גבי רקע כתום — לבן על כתום נכשל בניגודיות WCAG (2.8:1), כהה עובר (6.4:1) */
-  --color-on-action: #0f172a;
+  --color-on-action: #14213d;
   --color-success: #16a34a;
   --color-success-bg: #dcfce7;
+  --color-success-border: #86efac;
+  --color-success-text: #15803d;
   --color-info: #0284c7;
   --color-info-bg: #e0f2fe;
+  --color-info-border: #7dd3fc;
+  --color-info-text: #0369a1;
   --color-predicted-bg: #ffedd5;
   --color-predicted-text: #9a3412;
-  --color-empty-bg: #e2e8f0;
-  --color-empty-text: #475569;
+  --color-empty-bg: #eef2f7;
+  --color-empty-border: #cbd5e1;
+  --color-empty-text: #64748b;
   --color-card-bg: #ffffff;
-  --color-card-border: rgba(15, 23, 42, 0.08);
+  --color-card-border: #e4e9f1;
   --color-danger: #dc2626;
 
+  /* סרגל צד */
+  --color-sidebar-bg: #14213d;
+  --color-sidebar-text: #e2e8f5;
+  --color-sidebar-text-idle: #97a6c4;
+
+  /* קונטרולר מפולח (טאבים) */
+  --color-segmented-bg: #e2e7f0;
+
   /* טיפוגרפיה */
-  --font-main: "Noto Sans Hebrew", "Segoe UI", system-ui, sans-serif;
-  --fs-h1: clamp(28px, 4vw, 44px);
-  --fs-h2: clamp(22px, 3vw, 28px);
-  --fs-h3: 20px;
+  --font-main: "Assistant", "Segoe UI", system-ui, sans-serif;
+  --font-heading: "Rubik", "Assistant", system-ui, sans-serif;
+  --fs-h1: clamp(26px, 3.2vw, 32px);
+  --fs-h2: 21px;
+  --fs-h3: 18px;
   --fs-body: 16px;
   --fs-label: 14px;
   --line-height-base: 1.5;
 
   /* מרווחים ורדיוסים */
-  --radius-sm: 8px;
+  --radius-sm: 10px;
   --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --radius-segmented: 14px;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -49,14 +66,15 @@
   --space-6: 32px;
   --space-7: 48px;
 
-  /* צללים — עדינים, מותאמים לרקע בהיר */
-  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.07);
-  --shadow-card-hover: 0 2px 6px rgba(15, 23, 42, 0.06), 0 10px 24px rgba(15, 23, 42, 0.12);
+  /* צללים */
+  --shadow-card: 0 1px 3px rgba(16, 24, 40, 0.05);
+  --shadow-card-hover: 0 14px 34px rgba(16, 24, 40, 0.12);
+  --shadow-logo: 0 4px 12px rgba(0, 0, 0, 0.35);
 
   /* אנימציה */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 120ms;
-  --duration-base: 200ms;
+  --duration-fast: 150ms;
+  --duration-base: 180ms;
 }
 
 /* גודל טקסט נגיש — מוגדל דרך סרגל הנגישות */
@@ -74,12 +92,18 @@ html[data-a11y-contrast="high"] {
   --color-surface-sunken: #ffffff;
   --color-text-primary: #000000;
   --color-text-secondary: #000000;
+  --color-text-faint: #000000;
   --color-action: #b45309;
   --color-on-action: #ffffff;
   --color-card-bg: #ffffff;
   --color-card-border: #000000;
   --color-border: #000000;
   --color-border-subtle: #000000;
+  --color-divider: #000000;
+  --color-sidebar-bg: #000000;
+  --color-sidebar-text: #ffffff;
+  --color-sidebar-text-idle: #ffffff;
+  --color-segmented-bg: #ffffff;
 }
 
 html[data-a11y-underline="on"] a {

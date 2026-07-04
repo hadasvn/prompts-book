@@ -4,12 +4,12 @@
 
 .title {
   font-size: var(--fs-h1);
-  margin-bottom: var(--space-2);
+  margin-bottom: 7px;
 }
 
 .subtitle {
   color: var(--color-text-secondary);
-  font-size: var(--fs-body);
+  font-size: 15.5px;
 }
 
 .controls {
@@ -22,82 +22,120 @@
 }
 
 .tabs {
-  display: flex;
-  gap: var(--space-2);
+  display: inline-flex;
+  gap: 5px;
+  padding: 5px;
+  background: var(--color-segmented-bg);
+  border-radius: var(--radius-segmented);
   flex-wrap: wrap;
 }
 
 .tab {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  gap: 7px;
+  padding: 9px 15px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-secondary);
+  border: none;
+  background: transparent;
   color: var(--color-text-secondary);
-  font-weight: 700;
-  font-size: var(--fs-label);
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out), transform var(--duration-fast) var(--ease-out);
 }
 
 .tab:hover {
   color: var(--color-text-primary);
-  background-color: var(--color-surface-sunken);
 }
 
 .tab:active {
   transform: scale(0.97);
 }
 
-.tabActive {
-  background-color: var(--color-action);
-  border-color: var(--color-action);
-  color: var(--color-on-action);
+.tabDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.tabActive:hover {
-  background-color: var(--color-action-hover);
+.tabCount {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-faint);
+}
+
+.tabActive {
+  background-color: var(--color-card-bg);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  box-shadow: var(--shadow-card);
+}
+
+.tabActive .tabCount {
+  font-weight: 700;
 }
 
 .searchWrap {
   position: relative;
   min-width: 240px;
   flex: 1;
-  max-width: 360px;
+  max-width: 320px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-faint);
 }
 
 .searchInput {
   width: 100%;
-  padding: var(--space-3) var(--space-4);
+  padding: 12px 42px 12px 14px;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   background-color: var(--color-bg-secondary);
   color: var(--color-text-primary);
-  font-size: var(--fs-body);
-  transition: border-color var(--duration-base) var(--ease-out);
+  font-size: 14.5px;
+  transition: border-color var(--duration-base) var(--ease-out), box-shadow var(--duration-base) var(--ease-out);
 }
 
 .searchInput::placeholder {
-  color: var(--color-text-secondary);
+  color: var(--color-text-faint);
 }
 
 .searchInput:focus {
-  border-color: var(--color-info);
+  outline: none;
+  border-color: var(--color-action);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   gap: var(--space-5);
 }
 
 .sectionHeading {
-  font-size: var(--fs-label);
-  font-weight: 700;
-  color: var(--color-text-secondary);
-  margin: var(--space-5) 0 var(--space-3);
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  margin: var(--space-5) 0 20px;
+}
+
+.sectionHeading h2 {
+  font-size: var(--fs-h2);
+  font-weight: 600;
+}
+
+.sectionHeading span {
+  font-size: 14px;
+  color: var(--color-text-faint);
+  font-weight: 600;
 }
 
 .empty {

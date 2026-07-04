@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./PromptEditor.module.css";
 import { getPromptById } from "../lib/promptsRepo.js";
-import { categoryLabel } from "../data/categories.js";
+import { categoryMeta } from "../data/categories.js";
 import { storage } from "../lib/storage.js";
 import { buildPlaceholderState, isLongPlaceholder } from "../lib/placeholderState.js";
 import StatusBadge from "../components/StatusBadge.jsx";
 import Toast from "../components/Toast.jsx";
 import { useToast } from "../lib/useToast.js";
 import { trackEvent } from "../lib/analytics.js";
+import { ChevronRightIcon, CopyIcon, RefreshIcon, SaveIcon, BookmarkIcon } from "../components/icons.jsx";
 
 const STATUS_TO_CLASS = {
   confirmed: "phConfirmed",
@@ -148,19 +149,22 @@ export default function PromptEditor() {
   }
 
   const templateParts = prompt.template.split(/(\[[^\]]+\])/g);
+  const meta = categoryMeta(prompt.category);
 
   return (
     <section>
       <div className={styles.header}>
         <Link to="/" className={styles.backLink}>
-          → חזרה לספר הפרומפטים
+          <ChevronRightIcon size={17} />
+          חזרה לספר הפרומפטים
         </Link>
-        <h1 className={styles.title}>{prompt.title}</h1>
+        <div className={styles.titleRow}>
+          <h1 className={styles.title}>{prompt.title}</h1>
+          <span className={styles.categoryTag} style={{ color: meta.tagText, background: meta.iconBg }}>
+            {meta.label}
+          </span>
+        </div>
         <div className={styles.metaRow}>
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>קטגוריה</span>
-            <span className={styles.metaValue}>{categoryLabel(prompt.category)}</span>
-          </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>תפקיד ה-AI</span>
             <span className={styles.metaValue}>{prompt.aiRole}</span>
@@ -174,6 +178,7 @@ export default function PromptEditor() {
       </div>
 
       <div className={`${styles.readinessBanner} ${styles[`readiness_${READINESS_LABELS[readiness].tone}`]}`}>
+        <span className={styles.readinessDot} />
         <span className={styles.readinessText}>{READINESS_LABELS[readiness].text}</span>
         {!allFilled && <span className={styles.readinessDetail}>נותרו {remainingCount} שדות למילוי</span>}
         {allFilled && (
@@ -186,22 +191,36 @@ export default function PromptEditor() {
       </div>
 
       <div className={styles.toolbar}>
-        <button type="button" className={styles.secondaryButton} onClick={handleAutoFill}>
-          השלם אוטומטית מהפרופיל
-        </button>
         <button type="button" className={styles.primaryButton} onClick={handleCopy} disabled={!allFilled}>
+          <CopyIcon size={16} />
           העתק ללוח
         </button>
+        <button type="button" className={styles.secondaryButton} onClick={handleAutoFill}>
+          <RefreshIcon size={16} />
+          השלם אוטומטית מהפרופיל
+        </button>
         <button type="button" className={styles.secondaryButton} onClick={handleSaveFile} disabled={!allFilled}>
+          <SaveIcon size={16} />
           שמור כקובץ (ל-Drive שלך)
         </button>
         <button type="button" className={styles.secondaryButton} onClick={handleSaveToLibrary} disabled={!allFilled}>
+          <BookmarkIcon size={16} />
           שמור לפרומפטים שמורים
         </button>
       </div>
 
       <div className={styles.layout}>
         <div className={styles.promptPane}>
+          <div className={styles.promptPaneHead}>
+            <h3 className={styles.promptPaneTitle}>הפרומפט המלא</h3>
+            <div className={styles.legend}>
+              <span className={styles.legendItem}><span className={styles.legendDot} data-tone="confirmed" />מלא</span>
+              <span className={styles.legendItem}><span className={styles.legendDot} data-tone="suggested" />מוצע</span>
+              <span className={styles.legendItem}><span className={styles.legendDot} data-tone="predicted" />נחזה</span>
+              <span className={styles.legendItem}><span className={styles.legendDot} data-tone="empty" />חסר</span>
+            </div>
+          </div>
+          <div className={styles.promptPaneBody}>
           {templateParts.map((part, index) => {
             const isPlaceholder = part.startsWith("[") && part.endsWith("]");
             if (!isPlaceholder) return <span key={index}>{part}</span>;
@@ -215,9 +234,11 @@ export default function PromptEditor() {
               </span>
             );
           })}
+          </div>
         </div>
 
         <div className={styles.rubricPanel}>
+          <h3 className={styles.rubricPanelTitle}>מילוי שדות</h3>
           {labels.map((label) => {
             const state = placeholders[label];
             return (
@@ -227,7 +248,7 @@ export default function PromptEditor() {
                   <StatusBadge status={state.status} />
                 </div>
                 <textarea
-                  className={`${styles.rubricTextarea} ${isLongPlaceholder(label) ? styles.rubricTextareaLong : ""}`}
+                  className={`${styles.rubricTextarea} ${isLongPlaceholder(label) ? styles.rubricTextareaLong : ""} ${state.status === "empty" ? styles.rubricTextareaEmpty : ""}`}
                   value={state.value}
                   placeholder="לא מולא"
                   onChange={(e) => updatePlaceholder(label, e.target.value)}

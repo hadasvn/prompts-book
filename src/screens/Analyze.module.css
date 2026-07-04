@@ -189,7 +189,7 @@
 
 .confidenceHigh {
   background-color: var(--color-success-bg);
-  color: #14532d;
+  color: var(--color-success-text);
 }
 
 .confidenceLow {
@@ -209,7 +209,7 @@
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-md);
   background-color: var(--color-info-bg);
-  color: #075985;
+  color: var(--color-info-text);
   font-weight: 700;
   margin-inline-end: var(--space-3);
 }

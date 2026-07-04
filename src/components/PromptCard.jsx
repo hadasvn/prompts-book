@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./PromptCard.module.css";
-import { categoryLabel } from "../data/categories.js";
+import { categoryMeta } from "../data/categories.js";
 import { extractPlaceholders } from "../data/promptsCatalog.js";
+import { PencilIcon, ChevronLeftIcon } from "./icons.jsx";
 
 export default function PromptCard({ prompt }) {
   const navigate = useNavigate();
   const fieldsCount = extractPlaceholders(prompt.template).length;
+  const meta = categoryMeta(prompt.category);
 
   function open() {
     navigate(`/prompt/${prompt.id}`);
@@ -25,29 +27,25 @@ export default function PromptCard({ prompt }) {
       }}
     >
       <div className={styles.topRow}>
-        <h3 className={styles.title}>{prompt.title}</h3>
-        <span className={styles.categoryTag}>{categoryLabel(prompt.category)}</span>
+        <div className={styles.iconBox} style={{ background: meta.iconBg }}>
+          <meta.Icon size={21} color={meta.color} />
+        </div>
+        <span className={styles.categoryTag} style={{ color: meta.tagText, background: meta.iconBg }}>
+          {meta.label}
+        </span>
       </div>
 
-      <div className={styles.row}>
-        <span className={styles.rowLabel}>תפקיד ה-AI</span>
-        <span className={styles.rowValue}>{prompt.aiRole}</span>
-      </div>
-
-      <div className={styles.row}>
-        <span className={styles.rowLabel}>קלט נדרש</span>
-        <span className={styles.rowValue}>{prompt.requiredInput}</span>
-      </div>
-
-      <div className={styles.row}>
-        <span className={styles.rowLabel}>תוצר עסקי</span>
-        <span className={styles.rowValue}>{prompt.businessOutput}</span>
-      </div>
+      <h3 className={styles.title}>{prompt.title}</h3>
+      <p className={styles.output}>{prompt.businessOutput}</p>
 
       <div className={styles.footer}>
-        <span className={styles.fieldsCount}>{fieldsCount} שדות למילוי</span>
+        <span className={styles.fieldsCount}>
+          <PencilIcon size={14} />
+          {fieldsCount} שדות למילוי
+        </span>
         <button type="button" className={styles.openButton} onClick={open}>
           פתח
+          <ChevronLeftIcon size={15} />
         </button>
       </div>
     </article>
