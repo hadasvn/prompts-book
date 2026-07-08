@@ -90,11 +90,11 @@ export default function A11yToolbar() {
         ref={toggleRef}
         type="button"
         className={styles.toggle}
-        aria-label={open ? "סגור סרגל נגישות" : "פתח סרגל נגישות"}
+        aria-label={open ? "סגור הגדרות נגישות" : "פתח הגדרות נגישות"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        <span aria-hidden="true">♿</span>
+        הגדרות נגישות
       </button>
     </div>
   );

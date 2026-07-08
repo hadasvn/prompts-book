@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Outlet, Link } from "react-router-dom";
 import styles from "./Layout.module.css";
-import A11yToolbar from "./A11yToolbar.jsx";
+import Footer from "./Footer.jsx";
 import { BookIcon, UserIcon, ChartIcon, BookmarkIcon, SettingsIcon } from "./icons.jsx";
 import { storage } from "../lib/storage.js";
 import { PROFILE_FIELDS } from "../data/profileFields.js";
@@ -83,8 +83,8 @@ export default function Layout() {
 
       <main id="main-content" className={styles.main}>
         <Outlet />
+        <Footer />
       </main>
-      <A11yToolbar />
     </div>
   );
 }

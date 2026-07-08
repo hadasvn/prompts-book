@@ -1,42 +1,33 @@
 .wrap {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
+  position: relative;
+  display: inline-block;
   z-index: 50;
 }
 
 .toggle {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
   border: none;
-  background-color: var(--color-action);
-  color: var(--color-on-action);
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
   cursor: pointer;
-  box-shadow: var(--shadow-card);
-  transition: transform var(--duration-fast) var(--ease-out), background-color var(--duration-base) var(--ease-out);
+  transition: color var(--duration-base) var(--ease-out);
 }
 
 .toggle:hover {
-  background-color: var(--color-action-hover);
-  transform: scale(1.06);
-}
-
-.toggle:active {
-  transform: scale(0.96);
+  color: var(--color-action);
+  text-decoration: underline;
 }
 
 .panel {
   position: absolute;
-  bottom: 64px;
+  bottom: calc(100% + 12px);
   left: 0;
   width: 260px;
   background-color: var(--color-card-bg);
   color: var(--color-text-primary);
+  border: 1.5px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card-hover);
   padding: var(--space-4);
