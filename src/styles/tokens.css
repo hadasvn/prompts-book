@@ -1,46 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Assistant:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Assistant:wght@400;500;600;700;800&display=swap");
 
 :root {
-  /* צבעים — עיצוב SaaS מודרני: סרגל צד נייבי, כרטיסים לבנים, מבטא כתום */
-  --color-bg-primary: #eef1f6;
-  --color-bg-primary-soft: #eef1f6;
+  /* צבעים — לפי מערכת העיצוב של המוקאפים: סרגל צד נייבי בגרדיאנט, כרטיסים לבנים, מבטא קורל */
+  --color-bg-primary: #fafbfd;
+  --color-bg-primary-soft: #fafbfd;
   --color-bg-secondary: #ffffff;
   /* משטח "שקוע" לשדות קלט בתוך כרטיסים לבנים — נבדל בבירור מהכרטיס עצמו */
-  --color-surface-sunken: #f8fafc;
-  --color-border: #d8dfea;
-  --color-border-subtle: #e4e9f1;
-  --color-divider: #f1f5f9;
-  --color-text-primary: #1b2a4a;
-  --color-text-secondary: #64748b;
-  --color-text-faint: #94a3b8;
-  --color-action: #f97316;
-  --color-action-hover: #fb8c3c;
-  --color-action-active: #ea580c;
-  --color-on-action: #14213d;
-  --color-success: #16a34a;
-  --color-success-bg: #dcfce7;
-  --color-success-border: #86efac;
-  --color-success-text: #15803d;
+  --color-surface-sunken: #fafbfd;
+  --color-border: #e7e7f2;
+  --color-border-subtle: #e7e7f2;
+  --color-divider: #f1f1f9;
+  --color-text-primary: #2a2a3d;
+  --color-text-secondary: #6e6e85;
+  --color-text-faint: #9797ab;
+  --color-action: #ff6f61;
+  --color-action-hover: #e85b4e;
+  --color-action-active: #d94c3f;
+  --color-on-action: #2a2a3d;
+  --color-success: #35a97c;
+  --color-success-bg: #f3fbf6;
+  --color-success-border: #bee8d4;
+  --color-success-text: #1f7a54;
   --color-info: #0284c7;
   --color-info-bg: #e0f2fe;
   --color-info-border: #7dd3fc;
   --color-info-text: #0369a1;
-  --color-predicted-bg: #ffedd5;
-  --color-predicted-text: #9a3412;
-  --color-empty-bg: #eef2f7;
-  --color-empty-border: #cbd5e1;
-  --color-empty-text: #64748b;
+  --color-predicted-bg: #fff3f1;
+  --color-predicted-text: #8b5a2e;
+  --color-empty-bg: #eeeef6;
+  --color-empty-border: #d9d9e6;
+  --color-empty-text: #6e6e85;
   --color-card-bg: #ffffff;
-  --color-card-border: #e4e9f1;
-  --color-danger: #dc2626;
+  --color-card-border: #e7e7f2;
+  --color-danger: #b3261e;
+  --color-danger-hover: #8c1d14;
 
   /* סרגל צד */
-  --color-sidebar-bg: #14213d;
-  --color-sidebar-text: #e2e8f5;
-  --color-sidebar-text-idle: #97a6c4;
+  --color-sidebar-bg: linear-gradient(165deg, #21406f 0%, #17294c 100%);
+  --color-sidebar-text: #e7eefb;
+  --color-sidebar-text-idle: #9fb3d9;
 
   /* קונטרולר מפולח (טאבים) */
-  --color-segmented-bg: #e2e7f0;
+  --color-segmented-bg: #eeeef6;
 
   /* טיפוגרפיה */
   --font-main: "Assistant", "Segoe UI", system-ui, sans-serif;
@@ -67,9 +68,10 @@
   --space-7: 48px;
 
   /* צללים */
-  --shadow-card: 0 1px 3px rgba(16, 24, 40, 0.05);
-  --shadow-card-hover: 0 14px 34px rgba(16, 24, 40, 0.12);
-  --shadow-logo: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 1px 2px rgba(42, 42, 61, 0.04);
+  --shadow-card-hover: 0 8px 20px rgba(42, 42, 61, 0.1);
+  --shadow-logo: 0 6px 16px rgba(0, 0, 0, 0.35);
+  --shadow-sidebar-widget: 0 8px 20px rgba(0, 0, 0, 0.18);
 
   /* אנימציה */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

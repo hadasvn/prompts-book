@@ -7,6 +7,7 @@ import Analyze from "./screens/Analyze.jsx";
 import Library from "./screens/Library.jsx";
 import Settings from "./screens/Settings.jsx";
 import AccessibilityStatement from "./screens/AccessibilityStatement.jsx";
+import PrivacyPolicy from "./screens/PrivacyPolicy.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="library" element={<Library />} />
         <Route path="settings" element={<Settings />} />
         <Route path="accessibility" element={<AccessibilityStatement />} />
+        <Route path="privacy" element={<PrivacyPolicy />} />
       </Route>
     </Routes>
   );

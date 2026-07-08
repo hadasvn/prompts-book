@@ -87,4 +87,15 @@ export const storage = {
     const imported = storage.getImportedPrompts().filter((p) => p.id !== id);
     writeJson(KEYS.importedPrompts, imported);
   },
+
+  exportAll: () => ({
+    profile: storage.getProfile(),
+    savedPrompts: storage.getSavedPrompts(),
+    importedPrompts: storage.getImportedPrompts(),
+    settings: storage.getSettings(),
+    exportedAt: new Date().toISOString(),
+  }),
+  clearAll: () => {
+    Object.values(KEYS).forEach((key) => localStorage.removeItem(key));
+  },
 };

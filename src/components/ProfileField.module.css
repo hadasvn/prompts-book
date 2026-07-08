@@ -40,7 +40,7 @@
 }
 
 .textarea:focus {
-  border-color: var(--color-info);
+  border-color: var(--color-action);
 }
 
 .source {

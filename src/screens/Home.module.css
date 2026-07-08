@@ -12,76 +12,82 @@
   font-size: 15.5px;
 }
 
-.controls {
+.sectionHeading {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-4);
-  flex-wrap: wrap;
+  gap: 11px;
+  margin: var(--space-5) 0 12px;
+}
+
+.sectionHeading h2 {
+  font-size: 17.5px;
+}
+
+.sectionHeading span {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.catGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   margin-bottom: var(--space-5);
 }
 
-.tabs {
-  display: inline-flex;
-  gap: 5px;
-  padding: 5px;
-  background: var(--color-segmented-bg);
-  border-radius: var(--radius-segmented);
-  flex-wrap: wrap;
+@media (max-width: 780px) {
+  .catGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.tab {
-  display: inline-flex;
+.catTile {
+  background: var(--color-card-bg);
+  border: 1.5px solid var(--color-card-border);
+  border-radius: 13px;
+  padding: 14px;
+  text-align: right;
+  cursor: pointer;
+  transition: box-shadow var(--duration-base) var(--ease-out), border-color var(--duration-base) var(--ease-out);
+}
+
+.catTile:hover {
+  box-shadow: 0 6px 16px rgba(42, 42, 61, 0.08);
+  border-color: var(--cat, var(--color-card-border));
+}
+
+.catTileActive {
+  border-color: var(--cat, var(--color-action));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cat, var(--color-action)) 18%, transparent);
+}
+
+.catIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 15px;
-  border-radius: var(--radius-md);
-  border: none;
-  background: transparent;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.catName {
+  font-size: 14.5px;
+  margin-bottom: 3px;
+}
+
+.catCount {
+  font-size: 11.5px;
   color: var(--color-text-secondary);
   font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out), transform var(--duration-fast) var(--ease-out);
-}
-
-.tab:hover {
-  color: var(--color-text-primary);
-}
-
-.tab:active {
-  transform: scale(0.97);
-}
-
-.tabDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.tabCount {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-faint);
-}
-
-.tabActive {
-  background-color: var(--color-card-bg);
-  color: var(--color-text-primary);
-  font-weight: 700;
-  box-shadow: var(--shadow-card);
-}
-
-.tabActive .tabCount {
-  font-weight: 700;
 }
 
 .searchWrap {
   position: relative;
-  min-width: 240px;
-  flex: 1;
   max-width: 320px;
+  margin-bottom: var(--space-5);
 }
 
 .searchIcon {
@@ -111,31 +117,13 @@
 .searchInput:focus {
   outline: none;
   border-color: var(--color-action);
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.15);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   gap: var(--space-5);
-}
-
-.sectionHeading {
-  display: flex;
-  align-items: baseline;
-  gap: 11px;
-  margin: var(--space-5) 0 20px;
-}
-
-.sectionHeading h2 {
-  font-size: var(--fs-h2);
-  font-weight: 600;
-}
-
-.sectionHeading span {
-  font-size: 14px;
-  color: var(--color-text-faint);
-  font-weight: 600;
 }
 
 .empty {
@@ -145,10 +133,6 @@
 }
 
 @media (max-width: 640px) {
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
   .searchWrap {
     max-width: none;
   }

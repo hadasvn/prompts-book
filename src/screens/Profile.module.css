@@ -8,13 +8,80 @@
   margin-bottom: var(--space-5);
 }
 
+.topProgress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin: var(--space-4) 0 var(--space-5);
+  position: sticky;
+  top: 12px;
+  z-index: 5;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.barWrap {
+  flex: 1;
+}
+
+.barLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.barLabel b {
+  color: var(--color-text-primary);
+}
+
+.barTrack {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-segmented-bg);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--color-success);
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.group {
+  background-color: var(--color-bg-secondary);
+  border: 1.5px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  margin-bottom: var(--space-4);
+}
+
+.groupHead {
+  margin-bottom: var(--space-4);
+}
+
+.groupHead h2 {
+  font-size: 17px;
+}
+
+.groupHead p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: 3px;
+}
+
 .intakeCard {
   background-color: var(--color-bg-secondary);
-  border: 1px solid var(--color-border-subtle);
+  border: 1.5px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  margin-bottom: var(--space-6);
-  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-4);
 }
 
 .intakeHeading {
@@ -39,7 +106,8 @@
 }
 
 .textarea:focus {
-  border-color: var(--color-info);
+  border-color: var(--color-action);
+  background-color: var(--color-bg-secondary);
 }
 
 .dropzone {
@@ -60,8 +128,8 @@
 
 .dropzone:hover,
 .dropzoneActive {
-  border-color: var(--color-info);
-  background-color: rgba(2, 132, 199, 0.06);
+  border-color: var(--color-action);
+  background-color: rgba(255, 111, 97, 0.06);
 }
 
 .fileName {
@@ -129,7 +197,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-4);
-  margin-bottom: var(--space-6);
 }
 
 .footerActions {

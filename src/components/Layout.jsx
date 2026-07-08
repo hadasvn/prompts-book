@@ -8,9 +8,9 @@ import { PROFILE_FIELDS } from "../data/profileFields.js";
 
 const NAV_ITEMS = [
   { to: "/", label: "ספר הפרומפטים", end: true, Icon: BookIcon },
-  { to: "/profile", label: "פרופיל העסק", Icon: UserIcon },
-  { to: "/analyze", label: "ניתוח וייבוא", Icon: ChartIcon },
-  { to: "/library", label: "פרומפטים שמורים", Icon: BookmarkIcon },
+  { to: "/profile", label: "העסק שלי", Icon: UserIcon },
+  { to: "/analyze", label: "יבוא", Icon: ChartIcon },
+  { to: "/library", label: "שמורים שלי", Icon: BookmarkIcon },
   { to: "/settings", label: "הגדרות", Icon: SettingsIcon },
 ];
 
@@ -35,7 +35,7 @@ export default function Layout() {
       <aside className={styles.sidebar}>
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <img src="/favicon.svg" alt="" />
+            <img src={`${import.meta.env.BASE_URL}assets/logo-robot-single.png`} alt="" />
           </div>
           <div className={styles.brandTitle}>
             ספר פרומפטים
@@ -52,17 +52,31 @@ export default function Layout() {
               end={item.end}
               className={({ isActive }) => (isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink)}
             >
-              <item.Icon size={18} />
+              <span className={styles.badgeIcon}>
+                <item.Icon size={18} />
+              </span>
               {item.label}
             </NavLink>
           ))}
         </nav>
 
         <Link to="/profile" className={styles.profileWidget}>
-          <div className={styles.profileWidgetTitle}>פרופיל מוכן {percent < 100 ? "חלקית" : "במלואו"}</div>
-          <div className={styles.profileWidgetText}>השלימו אותו שהפרומפטים ימולאו אוטומטית.</div>
-          <div className={styles.progressTrack}>
-            <div className={styles.progressFill} style={{ width: `${percent}%` }} />
+          <div className={styles.ringWrap}>
+            <svg width="46" height="46" viewBox="0 0 46 46">
+              <circle className={styles.ringTrack} cx="23" cy="23" r="18.5" />
+              <circle
+                className={styles.ringFill}
+                cx="23"
+                cy="23"
+                r="18.5"
+                strokeDasharray={`${(percent / 100) * 116.2} 116.2`}
+              />
+            </svg>
+            <span className={styles.ringPct}>{percent}%</span>
+          </div>
+          <div>
+            <div className={styles.profileWidgetTitle}>ההתקדמות שלכם בפרופיל</div>
+            <div className={styles.profileWidgetText}>פרופיל מוכן {percent < 100 ? "חלקית" : "במלואו"}.</div>
           </div>
         </Link>
       </aside>

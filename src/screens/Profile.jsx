@@ -12,6 +12,9 @@ import Toast from "../components/Toast.jsx";
 export default function Profile() {
   const navigate = useNavigate();
   const [profile, setProfile] = useState(() => storage.getProfile() ?? emptyProfile());
+  const totalFields = PROFILE_FIELDS.length;
+  const filledCount = PROFILE_FIELDS.filter((f) => profile.fields[f.key]?.value?.trim()).length;
+  const percent = Math.round((filledCount / totalFields) * 100);
   const [intakeText, setIntakeText] = useState("");
   const [fileName, setFileName] = useState("");
   const [isDragActive, setIsDragActive] = useState(false);
@@ -99,8 +102,23 @@ export default function Profile() {
     <section>
       <h1 className={styles.title}>פרופיל העסק שלך</h1>
       <p className={styles.subtitle}>
-        מלאו פעם אחת — הפרטים ימשכו אוטומטית לכל הפרומפטים בספר.
+        ממלאים פעם אחת — וכל פרומפט מכאן והלאה משתמש בפרטים האלה אוטומטית. ככל שתמלאו יותר, כך הפרומפטים יהיו מדויקים
+        יותר.
       </p>
+
+      <div className={styles.topProgress}>
+        <div className={styles.barWrap}>
+          <div className={styles.barLabel}>
+            <span>התקדמות בפרופיל העסק</span>
+            <b>
+              {filledCount} מתוך {totalFields} פרטים
+            </b>
+          </div>
+          <div className={styles.barTrack}>
+            <div className={styles.barFill} style={{ width: `${percent}%` }} />
+          </div>
+        </div>
+      </div>
 
       <div className={styles.intakeCard}>
         <h2 className={styles.intakeHeading}>הדביקו תיאור עסק, או ייבאו קובץ</h2>
@@ -157,10 +175,16 @@ export default function Profile() {
         </div>
       </div>
 
-      <div className={styles.fieldsGrid}>
-        {PROFILE_FIELDS.map((field) => (
-          <ProfileField key={field.key} field={field} state={profile.fields[field.key]} onChange={handleFieldChange} />
-        ))}
+      <div className={styles.group}>
+        <div className={styles.groupHead}>
+          <h2>פרטי העסק</h2>
+          <p>כל שדה שתמלאו כאן ימשך אוטומטית לתוך הפרומפטים הרלוונטיים בספר.</p>
+        </div>
+        <div className={styles.fieldsGrid}>
+          {PROFILE_FIELDS.map((field) => (
+            <ProfileField key={field.key} field={field} state={profile.fields[field.key]} onChange={handleFieldChange} />
+          ))}
+        </div>
       </div>
 
       <div className={styles.footerActions}>

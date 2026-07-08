@@ -1,6 +1,6 @@
 .page {
   display: grid;
-  grid-template-columns: 256px 1fr;
+  grid-template-columns: 258px 1fr;
   min-height: 100vh;
 }
 
@@ -18,10 +18,10 @@
   overflow-y: auto;
   background: var(--color-sidebar-bg);
   color: var(--color-sidebar-text);
-  padding: var(--space-5) var(--space-4);
+  padding: 28px 18px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 30px;
 }
 
 @media (max-width: 880px) {
@@ -34,15 +34,15 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 13px;
 }
 
 .logo {
-  width: 46px;
-  height: 46px;
-  border-radius: 13px;
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
   box-shadow: var(--shadow-logo);
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.06);
@@ -60,83 +60,127 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 1.15;
+  color: #ffffff;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .navLink {
   display: flex;
   align-items: center;
-  gap: 11px;
-  padding: 11px 13px;
-  border-radius: var(--radius-sm);
+  gap: 12px;
+  padding: 9px 12px;
+  border-radius: 13px;
   color: var(--color-sidebar-text-idle);
   font-weight: 600;
-  font-size: 14.5px;
+  font-size: 15px;
   text-decoration: none;
   transition: background-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
 }
 
 .navLink:hover {
-  color: var(--color-sidebar-text);
+  color: #ffffff;
   background-color: rgba(255, 255, 255, 0.06);
 }
 
 .navLinkActive {
-  background: var(--color-action);
-  color: var(--color-on-action);
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .navLinkActive:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.badgeIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-sidebar-text-idle);
+  transition: background-color var(--duration-base) var(--ease-out), border-color var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+
+.navLinkActive .badgeIcon {
   background: var(--color-action);
+  border-color: var(--color-action);
   color: var(--color-on-action);
 }
 
 .profileWidget {
   margin-top: auto;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: var(--radius-md);
-  padding: 15px;
-  color: inherit;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-sidebar-widget);
+}
+
+.ringWrap {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+}
+
+.ringWrap svg {
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  fill: none;
+  stroke: #eeeef6;
+  stroke-width: 4.5;
+}
+
+.ringFill {
+  fill: none;
+  stroke: var(--color-success);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray var(--duration-base) var(--ease-out);
+}
+
+.ringPct {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--color-success);
 }
 
 .profileWidgetTitle {
-  font-size: 13px;
   font-weight: 700;
-  color: #7dd3fc;
-  margin-bottom: 4px;
+  font-size: 13.5px;
+  margin-bottom: 3px;
+  color: var(--color-text-primary);
 }
 
 .profileWidgetText {
-  font-size: 12px;
-  color: var(--color-sidebar-text-idle);
-  line-height: 1.5;
-  margin-bottom: 11px;
-}
-
-.progressTrack {
-  height: 6px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-}
-
-.progressFill {
-  height: 100%;
-  background: #38bdf8;
-  transition: width var(--duration-base) var(--ease-out);
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
 }
 
 .main {
-  padding: 32px 40px 56px;
+  padding: 28px 40px 60px;
   max-width: 1200px;
   width: 100%;
 }

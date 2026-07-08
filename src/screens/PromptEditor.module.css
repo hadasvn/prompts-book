@@ -84,7 +84,7 @@
   align-items: center;
   gap: 7px;
   padding: 11px 20px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background-color: var(--color-action);
   color: var(--color-on-action);
   font-weight: 800;
@@ -112,7 +112,7 @@
   align-items: center;
   gap: 7px;
   padding: 11px 18px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background-color: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   color: var(--color-text-primary);
@@ -205,7 +205,7 @@
 
 .promptPane {
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
+  border: 1.5px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   position: sticky;
@@ -308,7 +308,7 @@
 
 .rubricPanel {
   background-color: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
+  border: 1.5px solid var(--color-card-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   padding: 16px 20px;
@@ -365,7 +365,7 @@
 }
 
 .rubricTextareaEmpty {
-  border: 1.5px solid #fbbf6e;
+  border: 1.5px solid var(--color-action);
 }
 
 .rubricTextareaLong {
