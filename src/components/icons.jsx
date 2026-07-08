@@ -216,3 +216,32 @@ export function MicIcon(props) {
     />
   );
 }
+
+export function MenuIcon(props) {
+  return (
+    <Icon
+      {...props}
+      path={
+        <>
+          <line x1="4" x2="20" y1="7" y2="7" />
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="17" y2="17" />
+        </>
+      }
+    />
+  );
+}
+
+export function CloseIcon(props) {
+  return (
+    <Icon
+      {...props}
+      path={
+        <>
+          <path d="M18 6 6 18" />
+          <path d="M6 6l12 12" />
+        </>
+      }
+    />
+  );
+}
