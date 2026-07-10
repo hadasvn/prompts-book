@@ -1,47 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Assistant:wght@400;500;600;700;800&display=swap");
 
 :root {
-  /* צבעים — לפי מערכת העיצוב של המוקאפים: סרגל צד נייבי בגרדיאנט, כרטיסים לבנים, מבטא קורל */
-  --color-bg-primary: #fafbfd;
-  --color-bg-primary-soft: #fafbfd;
+  /* צבעים — מיתוג Boost Me: מגנטה/כתום, על גבי אותה מערכת רכיבים/מרווחים/צללים שבנינו */
+  --color-bg-primary: #f5f5f7;
+  --color-bg-primary-soft: #f5f5f7;
   --color-bg-secondary: #ffffff;
   /* משטח "שקוע" לשדות קלט בתוך כרטיסים לבנים — נבדל בבירור מהכרטיס עצמו */
-  --color-surface-sunken: #fafbfd;
-  --color-border: #e7e7f2;
-  --color-border-subtle: #e7e7f2;
-  --color-divider: #f1f1f9;
-  --color-text-primary: #2a2a3d;
-  --color-text-secondary: #6e6e85;
-  --color-text-faint: #9797ab;
-  --color-action: #ff6f61;
-  --color-action-hover: #e85b4e;
-  --color-action-active: #d94c3f;
-  --color-on-action: #2a2a3d;
-  --color-success: #35a97c;
-  --color-success-bg: #f3fbf6;
-  --color-success-border: #bee8d4;
-  --color-success-text: #1f7a54;
+  --color-surface-sunken: #f5f5f7;
+  --color-border: #e9e4e7;
+  --color-border-subtle: #e9e4e7;
+  --color-divider: #f1edef;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: rgba(26, 26, 26, 0.6);
+  --color-text-faint: rgba(26, 26, 26, 0.4);
+  --color-action: #e0128b;
+  --color-action-hover: #c10f79;
+  --color-action-active: #a50d67;
+  --color-on-action: #ffffff;
+  --color-success: #1f8a5b;
+  --color-success-bg: #eaf7f1;
+  --color-success-border: #b7e3cd;
+  --color-success-text: #1f8a5b;
   --color-info: #0284c7;
   --color-info-bg: #e0f2fe;
   --color-info-border: #7dd3fc;
   --color-info-text: #0369a1;
-  --color-predicted-bg: #fff3f1;
-  --color-predicted-text: #8b5a2e;
-  --color-empty-bg: #eeeef6;
-  --color-empty-border: #d9d9e6;
-  --color-empty-text: #6e6e85;
+  --color-predicted-bg: #fdf0f8;
+  --color-predicted-text: #a10e6e;
+  --color-empty-bg: #f1edef;
+  --color-empty-border: #ddd6da;
+  --color-empty-text: rgba(26, 26, 26, 0.6);
   --color-card-bg: #ffffff;
-  --color-card-border: #e7e7f2;
+  --color-card-border: #e9e4e7;
   --color-danger: #b3261e;
   --color-danger-hover: #8c1d14;
 
-  /* סרגל צד */
-  --color-sidebar-bg: linear-gradient(165deg, #21406f 0%, #17294c 100%);
-  --color-sidebar-text: #e7eefb;
-  --color-sidebar-text-idle: #9fb3d9;
+  /* סרגל צד — גרדיאנט המותג הרשמי של Boost Me */
+  --color-sidebar-bg: linear-gradient(135deg, #e0128b 0%, #f68920 100%);
+  --color-sidebar-text: #ffffff;
+  --color-sidebar-text-idle: rgba(255, 255, 255, 0.85);
 
   /* קונטרולר מפולח (טאבים) */
-  --color-segmented-bg: #eeeef6;
+  --color-segmented-bg: #f1edef;
 
   /* טיפוגרפיה */
   --font-main: "Assistant", "Segoe UI", system-ui, sans-serif;

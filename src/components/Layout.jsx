@@ -58,7 +58,7 @@ export default function Layout() {
         <div className={styles.sidebarTop}>
           <Link to="/" className={styles.brand}>
             <div className={styles.logo}>
-              <img src={`${import.meta.env.BASE_URL}assets/logo-robot-single.png`} alt="" />
+              <img src={`${import.meta.env.BASE_URL}assets/logo-boost-me-icon.png`} alt="" />
             </div>
             <div className={styles.brandTitle}>ספר פרומפטים חכם</div>
           </Link>

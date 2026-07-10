@@ -107,10 +107,13 @@
   height: 54px;
   border-radius: 15px;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   box-shadow: var(--shadow-logo);
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 880px) {
@@ -122,9 +125,9 @@
 }
 
 .logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
   display: block;
 }
 
@@ -166,25 +169,26 @@
 
 .navLink:hover {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .navLinkActive {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--color-action-hover);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
 
 .navLinkActive:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--color-action-hover);
 }
 
 .badgeIcon {
   width: 36px;
   height: 36px;
   border-radius: 11px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
